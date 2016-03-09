@@ -34,10 +34,11 @@ callback = function(res) {
     str += chunk;
     myGames += chunk;
   });
-
+  console.log('Hello there Tim!');
   res.on('end', function () {
     console.log(str);
   });
+  console.log('Hi again Tim!');
 }
 
 var req = https.request(options, callback);

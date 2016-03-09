@@ -33,7 +33,7 @@ function getGames(){
 
     for (var p in req.query){
         games.push({'game':p,'value':req.query[p]});
-      }
+      };
   
     var context = {};
       context.gameList = games;
@@ -45,7 +45,7 @@ function getGames(){
  
   
   
-}
+};
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

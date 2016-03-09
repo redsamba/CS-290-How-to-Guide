@@ -21,46 +21,31 @@ app.use('/Intro',function(req,res){
   res.render('intro.handlebars');
 });
 
-//document.addEventListener('DOMContentLoaded', getGames);
+var https = require('https');
 
-/*function getGames(){
-  document.getElementById('gameSubmit').addEventListener('click', function(event){
-    
-     app.get('/Games',function(req,res){
-    //var req = new XMLHttpRequest();
-    req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
-    var games = [];
+var options = {
+  host: 'www.igdb.com',
+  path: '/api/v1/games',
+  port: '443',
+  headers: {
+    'Accept': 'application/json',
+    'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
+  }
+};
 
-    for (var p in req.query){
-        games.push({'game':p,'value':req.query[p]});
-      };
-  
-    var context = {};
-      context.gameList = games;
-     res.render('games.handlebars', context);  
-
-    });
-    
+callback = function(response) {
+  var str = ''
+  response.on('data', function (chunk) {
+    str += chunk;
   });
- 
-  
-  
-};*/
 
-  app.get('/Games',function(req,res){
-    //var req = new XMLHttpRequest();
-    req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
-    var games = [];
+  response.on('end', function () {
+    console.log(str);
+  });
+}
 
-    for (var p in req.query){
-        games.push({'game':p,'value':req.query[p]});
-      };
-  
-    var context = {};
-      context.gameList = games;
-     res.render('games.handlebars', context);  
-
-    });
+var req = https.request(options, callback);
+req.end();
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

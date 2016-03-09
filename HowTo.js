@@ -1,5 +1,7 @@
 var express = require('express');
 
+var igdb = require('igdb-api-node')
+
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');

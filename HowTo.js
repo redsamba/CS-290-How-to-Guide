@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 
 var apiKey = 'QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI';
 
+document.addEventListener('DOMContentLoaded', getGames);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -21,29 +23,28 @@ app.use('/Intro',function(req,res){
   res.render('intro.handlebars');
 });
 
-app.get('/Games',function(req,res){
-var req = new XMLHttpRequest();
-var games = {Games:null};
+function getGames(){
+  
+  app.get('/Games',function(req,res){
+//var req = new XMLHttpRequest();
+req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
+var games = [];
+
+for (var p in req.query){
+    games.push({'game':p,'value':req.query[p]});
+  }
+  
+var context = {};
+  context.gameList = games;
+  res.render('games.handlebars', context);  
+
 games.Games = document.getElementById('games').value;
 req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
 
-if(req.status >=200 && req.status < 400)){
-  
-  var response = JSON.parse(req.responseText);
-      			document.getElementById('gameID').textContent = response.games.id;
-      			document.getElementById('gName').textContent = response.games.name;
-      			document.getElementById('gSlug').textContent = response.games.slug;
-      			document.getElementById('gDate').textContent = response.games.release_date;
-      			document.getElementById('altName').textContent = response.games.alternative_name;
-}
-
-else{
-
-      			console.log("Error in network request: " + request.statusText);
-
-      		}
-  
 });
+  
+  
+}
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

@@ -23,7 +23,7 @@ app.use('/Intro',function(req,res){
 
 //document.addEventListener('DOMContentLoaded', getGames);
 
-function getGames(){
+//function getGames(){
   
   app.get('/Games',function(req,res){
 //var req = new XMLHttpRequest();
@@ -44,7 +44,7 @@ req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
 });
   
   
-}
+//}
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

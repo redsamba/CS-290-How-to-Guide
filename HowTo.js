@@ -27,15 +27,15 @@ var options = {
   }
 };
 
-callback = function(response) {
+callback = function(res) {
   var str = ''
   var myGames = {}
-  response.on('data', function (chunk) {
+  res.on('data', function (chunk) {
     str += chunk;
     myGames += chunk;
   });
 
-  response.on('end', function () {
+  res.on('end', function () {
     console.log(str);
   });
 }

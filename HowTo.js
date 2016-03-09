@@ -14,7 +14,7 @@ app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
 app.get('/',function(req,res){
-  res.render('howtomain.handlebars') //We can omit the .handlebars extension as we do below
+  res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
 });
 
 app.use('/Intro',function(req,res){

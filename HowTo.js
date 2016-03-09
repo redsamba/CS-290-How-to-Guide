@@ -42,9 +42,9 @@ callback = function(response) {
 
 var req = https.request(options, callback);
 req.end();
-});
 
 res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
+});
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

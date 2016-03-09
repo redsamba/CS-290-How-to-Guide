@@ -1,14 +1,31 @@
+
 {
-  "name": "hello-world",
+  "name": "igdb-api-node",
   "version": "1.0.0",
-  "description": "Hello world with express and node.js",
-  "main": "app.js",
+  "description": "Nodejs API Wrapper for IGDB.com",
+  "main": "index.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "coffee index.coffee"
   },
-  "author": "OSU",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igdb/igdb-api-node.git"
+  },
+  "keywords": [
+    "igdb",
+    "games",
+    "api",
+    "wrapper"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igdb/igdb-api-node/issues"
+  },
+  "homepage": "https://github.com/igdb/igdb-api-node",
   "dependencies": {
+    "coffee-script": "^1.9.3",
+    "request": "^2.60.0"
     "body-parser": "^1.13.3",
     "express": "^4.13.2",
     "express-handlebars": "^2.0.1",

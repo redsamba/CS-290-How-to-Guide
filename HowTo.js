@@ -15,6 +15,10 @@ app.get('/',function(req,res){
   res.render('howtomain.handlebars') //We can omit the .handlebars extension as we do below
 });
 
+app.get('/Intro',function(req,res){
+  res.render('intro.handlebars') //We can omit the .handlebars extension as we do below
+});
+
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
 });

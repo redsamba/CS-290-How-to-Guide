@@ -39,7 +39,7 @@ callback = function(res) {
   res.on('end', function () {
     console.log(str);
   });
-  console.log('Hi again Tim!');
+  console.log("Hi again Tim!");
 }
 console.log('Almost there Tim!');
 var req = https.request(options, callback);

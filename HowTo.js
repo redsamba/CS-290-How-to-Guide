@@ -15,8 +15,8 @@ app.get('/',function(req,res){
   res.render('howtomain.handlebars') //We can omit the .handlebars extension as we do below
 });
 
-app.get('/Intro',function(req,res){
-  res.render('intro.handlebars') //We can omit the .handlebars extension as we do below
+app.use('/Intro',function(req,res){
+  res.render('intro.handlebars');
 });
 
 app.listen(app.get('port'), function(){

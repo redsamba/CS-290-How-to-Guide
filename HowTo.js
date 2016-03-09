@@ -21,7 +21,7 @@ app.use('/Intro',function(req,res){
   res.render('intro.handlebars');
 });
 
-document.addEventListener('DOMContentLoaded', getGames);
+//document.addEventListener('DOMContentLoaded', getGames);
 
 function getGames(){
   

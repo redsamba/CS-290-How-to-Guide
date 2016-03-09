@@ -33,7 +33,7 @@ callback = function(res) {
   console.log('Greetings Tim!');
   res.on('data', function (chunk) {
     str += chunk;
-    myGames = JSON.parse(chunk.responseText);
+    myGames = chunk;
     document.getElementById('gameID').textContent = myGames.games.id;
     document.getElementById('gName').textContent = myGames.games.name;
   });

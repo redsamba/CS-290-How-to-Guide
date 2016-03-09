@@ -16,8 +16,10 @@ var options = {
 
 callback = function(response) {
   var str = ''
+  var myGames = {}
   response.on('data', function (chunk) {
     str += chunk;
+    myGames += chunk;
   });
 
   response.on('end', function () {

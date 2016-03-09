@@ -1,8 +1,34 @@
-var express = require('express');
+//var express = require('express');
 
-var igdb = require('igdb-api-node')
+var igdb = require('igdb-api-node');
 
-var app = express();
+var https = require('https');
+
+var options = {
+  host: 'www.igdb.com',
+  path: '/api/v1/games',
+  port: '443',
+  headers: {
+    'Accept': 'application/json',
+    'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
+  }
+};
+
+callback = function(response) {
+  var str = ''
+  response.on('data', function (chunk) {
+    str += chunk;
+  });
+
+  response.on('end', function () {
+    console.log(str);
+  });
+}
+
+var req = https.request(options, callback);
+req.end();
+
+/*var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
@@ -59,4 +85,4 @@ res.render('games.handlebars', context);
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
-});
+});*/

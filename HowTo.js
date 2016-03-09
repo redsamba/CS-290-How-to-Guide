@@ -26,10 +26,11 @@ var options = {
     'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
   }
 };
-
+console.log('Hi Tim!')
 callback = function(res) {
   var str = ''
   var myGames = {}
+  console.log('Greetings Tim!')
   res.on('data', function (chunk) {
     str += chunk;
     myGames += chunk;
@@ -40,7 +41,7 @@ callback = function(res) {
   });
   console.log('Hi again Tim!');
 }
-
+console.log('Almost there Tim!')
 var req = https.request(options, callback);
 req.end();
 

@@ -21,30 +21,31 @@ app.use('/Intro',function(req,res){
   res.render('intro.handlebars');
 });
 
-//document.addEventListener('DOMContentLoaded', getGames);
+document.addEventListener('DOMContentLoaded', getGames);
 
-//function getGames(){
-  
-  app.get('/Games',function(req,res){
-//var req = new XMLHttpRequest();
-req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
-var games = [];
+function getGames(){
+  document.getElementById('gameSubmit').addEventListener('click', function(event){
+    
+     app.get('/Games',function(req,res){
+    //var req = new XMLHttpRequest();
+    req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
+    var games = [];
 
-for (var p in req.query){
-    games.push({'game':p,'value':req.query[p]});
-  }
+    for (var p in req.query){
+        games.push({'game':p,'value':req.query[p]});
+      }
   
-var context = {};
-  context.gameList = games;
-  res.render('games.handlebars', context);  
+    var context = {};
+      context.gameList = games;
+     res.render('games.handlebars', context);  
 
-games.Games = document.getElementById('games').value;
-req.open("GET", 'https://www.igdb.com/api/v1/games?limit=10&token=' + apiKey);
-
-});
+    });
+    
+  });
+ 
   
   
-//}
+}
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

@@ -16,7 +16,7 @@ app.set('port', 3000);
 app.get('/',function(req,res){
   
 var https = require('https');
-
+console.log('Hi Tim!');
 var options = {
   host: 'www.igdb.com',
   path: '/api/v1/games',
@@ -26,11 +26,11 @@ var options = {
     'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
   }
 };
-console.log('Hi Tim!')
+console.log('Hi Tim!');
 callback = function(res) {
   var str = ''
   var myGames = {}
-  console.log('Greetings Tim!')
+  console.log('Greetings Tim!');
   res.on('data', function (chunk) {
     str += chunk;
     myGames += chunk;
@@ -41,10 +41,10 @@ callback = function(res) {
   });
   console.log('Hi again Tim!');
 }
-console.log('Almost there Tim!')
+console.log('Almost there Tim!');
 var req = https.request(options, callback);
 req.end();
-
+console.log('Done Tim!');
 res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
 });
 

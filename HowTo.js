@@ -29,16 +29,19 @@ var options = {
 console.log('Hi Tim!');
 callback = function(res) {
   var str = ''
-  var myGames = {}
+  var myGames;
   console.log('Greetings Tim!');
   res.on('data', function (chunk) {
     str += chunk;
-    myGames += chunk;
+    myGames = JSON.parse(chunk.responseText);
+    document.getElementById('gameID').textContent = myGames.games.id;
+    document.getElementById('gName').textContent = myGames.games.name;
   });
   console.log('Hello there Tim!');
   res.on('end', function () {
     console.log(str);
   });
+  
   console.log("Hi again Tim!");
 }
 console.log('Almost there Tim!');

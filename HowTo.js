@@ -6,8 +6,6 @@ var bodyParser = require('body-parser');
 
 var apiKey = 'QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI';
 
-document.addEventListener('DOMContentLoaded', getGames);
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -22,6 +20,8 @@ app.get('/',function(req,res){
 app.use('/Intro',function(req,res){
   res.render('intro.handlebars');
 });
+
+document.addEventListener('DOMContentLoaded', getGames);
 
 function getGames(){
   

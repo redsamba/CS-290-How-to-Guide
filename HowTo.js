@@ -15,9 +15,7 @@ app.set('port', 3000);
 
 app.get('/',function(req,res){
   res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
-});
-
-var https = require('https');
+  var https = require('https');
 
 var options = {
   host: 'www.igdb.com',
@@ -44,6 +42,7 @@ callback = function(response) {
 
 var req = https.request(options, callback);
 req.end();
+});
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

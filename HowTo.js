@@ -49,6 +49,7 @@ callback = function(response) {
 var req = https.request(options, callback);
 req.end();
 
+res.render('games.handlebars', context);
   
 });
 

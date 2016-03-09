@@ -25,7 +25,7 @@
   "homepage": "https://github.com/igdb/igdb-api-node",
   "dependencies": {
     "coffee-script": "^1.9.3",
-    "request": "^2.60.0"
+    "request": "^2.60.0",
     "body-parser": "^1.13.3",
     "express": "^4.13.2",
     "express-handlebars": "^2.0.1",

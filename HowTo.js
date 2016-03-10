@@ -17,30 +17,30 @@ app.get('/',function(req,res){
 
 var myGames;
 var https = require('https');
+
 var options = {
   host: 'www.igdb.com',
   path: '/api/v1/games',
   port: '443',
   headers: {
     'Accept': 'application/json',
-    'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
+    'Authorization': 'Token token="123"'
   }
 };
-callback = function(res) {
+
+callback = function(response) {
   var str = ''
-  res.on('data', function (chunk) {
+  response.on('data', function (chunk) {
     str += chunk;
-    //myGames = JSON.parse(str);
   });
 
-  res.on('end', function () {
-    var myGames = JSON.parse(str);
+  response.on('end', function () {
     console.log(str);
-    
   });
-  
 }
+
 var req = https.request(options, callback);
+req.end();
 
  var context = {};
  context.sentData = myGames.games[0].name;

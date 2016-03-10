@@ -43,11 +43,10 @@ callback = function(response) {
 }
 
 var req = https.request(options, callback);
+req.end();
 
 console.log(obj);
-
 res.render('howtomain.handlebars');
-req.end();
 });
 
 

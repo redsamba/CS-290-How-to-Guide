@@ -13,7 +13,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-app.get('/',function(req,res){
+//app.get('/',function(req,res){
 
 var myGames;
 var https = require('https');
@@ -35,8 +35,15 @@ callback = function(res) {
 
   res.on('end', function () {
     var myGames = JSON.parse(str);
-    console.log(obj.games[0].name);
     console.log(str);
+    
+    app.get('/',function(req, _res){
+    
+      var context = {};
+      context.sentData = myGames.games[0].name;
+      _res.render('howtomain.handlebars', context);
+    
+    });
     
   });
   
@@ -44,10 +51,10 @@ callback = function(res) {
 var req = https.request(options, callback);
 req.end;
 
- var context = {};
- context.sentData = myGames.games[0].name;
+ //var context = {};
+ //context.sentData = myGames.games[0].name;
       
- res.render('howtomain.handlebars', context);
+// res.render('howtomain.handlebars', context);
 
 });
 

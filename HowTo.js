@@ -32,7 +32,7 @@ callback = function(res) {
   res.on('data', function (chunk) {
     str += chunk;
     //myGames = JSON.parse(str);
-    myGames = chunk;
+    myGames = JSON.parse(chunk);
   });
 
   res.on('end', function () {

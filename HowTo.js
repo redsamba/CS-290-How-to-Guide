@@ -24,7 +24,7 @@ var options = {
   port: '443',
   headers: {
     'Accept': 'application/json',
-    'Authorization': 'Token token="123"'
+    'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
   }
 };
 

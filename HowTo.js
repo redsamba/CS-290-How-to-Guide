@@ -33,14 +33,19 @@ callback = function(response) {
   });
 
   response.on('end', function () {
+    myGames = JSON.parse(str);
     console.log(str);
   });
+  
+  console.log(myGames.games[0].name);
+  
 }
 
 var req = https.request(options, callback);
-req.end();
+
 
 res.render('howtomain.handlebars');
+req.end();
 });
 
 

@@ -58,8 +58,12 @@ callback = function(response) {
       for (var p in myGames.game){
       
         if (isArray(myGames.game[p])){
-          for(var i = 0; i < myGames.game[p].length; i++){
-            cycle((myGames.game[p])[i]);    
+          for(var i = 0; i < (myGames.game[p]).length; i++){
+            for (var q in (myGames.game[p])[i]){
+                
+                qParams.push({'name':q,'value':((myGames.game[p])[i])[q]});
+                
+            }
           }
           
         }

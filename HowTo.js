@@ -39,12 +39,14 @@ callback = function(res) {
     console.log(obj.games[0].name);
     myGames[0] = obj.games[0].name;
     console.log(str);
+    console.log(myGames[0]);
   });
   
 }
 var req = https.request(options, callback);
 
 req.end();
+console.log(myGames[0]);
 var context = {};
 context.sentData = myGames[0];
 

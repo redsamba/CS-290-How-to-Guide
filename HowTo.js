@@ -12,6 +12,12 @@ app.set('port', 3000);
 
 var obj = 'FAT HORSE';
 
+function isArray(object)
+{
+    if (object.constructor === Array) return true;
+    else return false;
+}
+
 app.get('/',function(req,res){
 
 var myGames;
@@ -38,15 +44,36 @@ callback = function(response) {
     console.log(str);
     
     var qParams = [];
-    for(var i = 0; i < 25; i++){
+    /*for(var i = 0; i < 25; i++){
       
       for (var p in myGames.companies[i]){
         qParams.push({'name':p,'value':(myGames.companies[i])[p]});
         console.log("Name: " + p  + (myGames.companies[i])[p]);
       }
       
+    }*/
+    
+    var cycle = function(my){
+      
+      for (var p in my.game){
+      
+        if (isArray(my.game[p])){
+          
+          cycle(my.game[p]);  
+          
+        }
+        else{
+          
+          qParams.push({'name':p,'value':my.game[p]});
+          
+        }
+        
+      }
+      
     }
     
+    cycle(myGames);
+      
     var context = {};
     context.dataList = qParams;
     

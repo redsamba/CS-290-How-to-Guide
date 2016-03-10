@@ -6,8 +6,6 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
-var myGames;
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -16,7 +14,8 @@ app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
 app.get('/',function(req,res){
-  
+
+var myGames;
 var https = require('https');
 var options = {
   host: 'www.igdb.com',
@@ -34,10 +33,12 @@ callback = function(res) {
     //myGames = JSON.parse(str);
   });
 
-  res.on('end', function () {
-    res.send(myGames);
+  res.on('end', myGames = function () {
+    var obj = JSON.parse(str);
     console.log(obj.games[0].name);
     console.log(str);
+    
+    return obj;
     
   });
   

@@ -1,1 +1,7 @@
-<h1>The data you sent in the variable myGames is: {{sentData}}</h1>
+<h1>The data you sent in the variable myGames is:</h1>
+
+<ul>
+  {{#each dataList}}
+    <li>{{this.name}}: {{this.value}}
+  {{/each}}
+</ul>

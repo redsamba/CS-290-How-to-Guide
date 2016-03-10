@@ -11,10 +11,11 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+var obj = 'FAT HORSE';
+
 app.get('/',function(req,res){
 
 var myGames;
-var obj = 'FAT HORSE';
 var https = require('https');
 
 var options = {

@@ -14,6 +14,7 @@ app.set('port', 3000);
 app.get('/',function(req,res){
 
 var myGames;
+var obj;
 var https = require('https');
 
 var options = {
@@ -36,9 +37,10 @@ callback = function(response) {
     myGames = JSON.parse(str);
     console.log(str);
     console.log(myGames.games[0].name);
+    obj = myGames.games[0].name;
   });
   
- 
+ console.log(obj);
   
 }
 

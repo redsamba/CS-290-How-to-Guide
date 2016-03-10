@@ -33,17 +33,16 @@ callback = function(res) {
     //myGames = JSON.parse(str);
   });
 
-  res.on('end', myGames = function () {
-    var obj = JSON.parse(str);
+  res.on('end', function () {
+    var myGames = JSON.parse(str);
     console.log(obj.games[0].name);
     console.log(str);
-    
-    return obj;
     
   });
   
 }
 var req = https.request(options, callback);
+req.end;
 
  var context = {};
  context.sentData = myGames.games[0].name;

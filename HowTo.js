@@ -39,8 +39,19 @@ callback = function(response) {
     console.log(myGames.games[0].name);
     console.log(myGames.games[22].name);
     console.log(str);
+    
+    var qParams = [];
+    for(var i = 0; i < 25; i++){
+      
+      for (var p in myGames.games[i]){
+        qParams.push({'name':p,'value':(myGames.games[i])[p]});
+      }
+      
+    }
+    
     var context = {};
-    context.sentData = myGames.games[0].name;
+    context.dataList = qParams;
+    
     app.get('/Games',function(_req,_res){
       
       _res.render('games.handlebars', context);

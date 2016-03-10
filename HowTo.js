@@ -14,7 +14,7 @@ app.set('port', 3000);
 app.get('/',function(req,res){
 
 var myGames;
-var obj;
+var obj = 'FAT HORSE';
 var https = require('https');
 
 var options = {

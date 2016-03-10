@@ -41,7 +41,6 @@ callback = function(res) {
   
 }
 var req = https.request(options, callback);
-req.end;
 
  //var context = {};
  //context.sentData = myGames.games[0].name;

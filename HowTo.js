@@ -42,10 +42,10 @@ callback = function(res) {
 }
 var req = https.request(options, callback);
 
- //var context = {};
- //context.sentData = myGames.games[0].name;
+ var context = {};
+ context.sentData = myGames.games[0].name;
       
- res.render('howtomain.handlebars');
+ res.render('howtomain.handlebars', context);
 });
 
 

@@ -40,12 +40,11 @@ callback = function(response) {
     obj = myGames.games[0].name;
   });
   
- console.log(obj);
-  
 }
 
 var req = https.request(options, callback);
 
+console.log(obj);
 
 res.render('howtomain.handlebars');
 req.end();

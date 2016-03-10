@@ -36,7 +36,7 @@ callback = function(res) {
 
   res.on('end', function () {
     var obj = JSON.parse(str);
-    console.log(obj.games.name);
+    console.log(obj.games[1].name);
     myGames = JSON.parse(str);
     console.log(str);
   });

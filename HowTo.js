@@ -41,7 +41,11 @@ callback = function(response) {
     console.log(str);
     var context = {};
     context.sentData = myGames.games[0].name;
-    res.render('games.handlebars', context);
+    app.get('/Games',function(_req,_res){
+      
+      _res.render('games.handlebars', context);
+      
+    });
   });
 }
 

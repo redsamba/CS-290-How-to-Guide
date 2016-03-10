@@ -35,9 +35,8 @@ callback = function(res) {
   });
 
   res.on('end', function () {
-    var obj = JSON.parse(str);
-    console.log(obj.games[0].name);
-    myGames = obj.games[0].name;
+    myGames = JSON.parse(str);
+    console.log(myGames.games[0].name);
     console.log(str);
   });
   

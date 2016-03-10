@@ -37,14 +37,6 @@ callback = function(res) {
     var myGames = JSON.parse(str);
     console.log(str);
     
-    app.get('/Games',function(req, _res){
-    
-      var context = {};
-      context.sentData = myGames.games[0].name;
-      _res.render('games.handlebars', context);
-    
-    });
-    
   });
   
 }

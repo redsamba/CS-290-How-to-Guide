@@ -13,7 +13,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-var myGames;
+var myGames = 0;
 
 app.get('/',function(req,res){
   
@@ -37,7 +37,7 @@ callback = function(res) {
   res.on('end', function () {
     var obj = JSON.parse(str);
     console.log(obj.games[0].name);
-    myGames = JSON.parse(str);
+    myGames = obj;
     console.log(str);
   });
   

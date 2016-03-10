@@ -45,8 +45,8 @@ callback = function(res) {
 var req = https.request(options, callback);
 
 req.end();
-
-var context.sentData = myGames;
+var context = {};
+context.sentData = myGames;
 
 res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });

@@ -33,19 +33,22 @@ callback = function(response) {
   response.on('data', function (chunk) {
     str += chunk;
   });
-
-  response.on('end', function () {
-    myGames = JSON.parse(str);
-    console.log(str);
-    console.log(myGames.games[0].name);
-    obj = myGames.games[0].name;
-  });
   
+  myGames = JSON.parse(str);
+  console.log(myGames.games[0].name);
+  console.log(myGames.games[25].name);
+  
+  response.on('end', function () {
+    
+    console.log(str);
+    
+  });
 }
 
 var req = https.request(options, callback);
+
 req.end();
-res.render('howtomain.handlebars');
+ res.render('howtomain.handlebars');
 });
 
 app.listen(app.get('port'), function(){

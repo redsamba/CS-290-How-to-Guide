@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
-var igdb = require('igdb-api-node');
+//var igdb = require('igdb-api-node');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -38,9 +38,7 @@ callback = function(response) {
 }
 
 var req = https.request(options, callback);
-req.end();
-
-myGames = igdb.games.index({ limit: 5, offset: 15 }, output);
+req.end(myGames, callback);
 
  var context = {};
  context.sentData = myGames.games[0].name;

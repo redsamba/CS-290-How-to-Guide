@@ -45,7 +45,7 @@ callback = function(response) {
       
       for (var p in myGames.games[i]){
         qParams.push({'name':p,'value':(myGames.games[i])[p]});
-        console.log("Name: " + p " Value: " + (myGames.games[i])[p]);
+        console.log("Name: " + p  + (myGames.games[i])[p]);
       }
       
     }

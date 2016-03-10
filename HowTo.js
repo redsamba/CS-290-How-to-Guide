@@ -13,6 +13,8 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+var myGames;
+
 app.get('/',function(req,res){
   
 var https = require('https');
@@ -29,14 +31,15 @@ var options = {
 console.log('Hi Tim!');
 callback = function(res) {
   var str = ''
-  var myGames;
   console.log('Greetings Tim!');
   res.on('data', function (chunk) {
     str += chunk;
-    myGames = chunk;
-    document.getElementById('gameID').textContent = myGames.games.id;
-    document.getElementById('gName').textContent = myGames.games.name;
   });
+  
+   res.on('data', function (data) {
+     myGames = JSON.parse(data);
+  });
+
   console.log('Hello there Tim!');
   res.on('end', function () {
     console.log(str);
@@ -46,9 +49,13 @@ callback = function(res) {
 }
 console.log('Almost there Tim!');
 var req = https.request(options, callback);
+
 req.end();
 console.log('Done Tim!');
-res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
+
+var context = myGames.games[1].name;
+
+res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });
 
 app.listen(app.get('port'), function(){

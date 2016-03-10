@@ -37,11 +37,12 @@ callback = function(res) {
   res.on('end', function () {
     var obj = JSON.parse(str);
     console.log(obj.games[0].name);
-    myGames[0] = obj.games[0].name;
     console.log(str);
-    console.log(myGames[0]);
     
-    res.render('howtomain.handlebars', myGames[0]);
+    var context = {};
+    context.sentData = obj.games[0].name;
+    
+    res.render('howtomain.handlebars', context);
     
   });
   

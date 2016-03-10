@@ -13,7 +13,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-var myGames;
+var myGames = [];
 
 app.get('/',function(req,res){
   
@@ -35,8 +35,9 @@ callback = function(res) {
   });
 
   res.on('end', function () {
-    myGames = JSON.parse(str);
-    console.log(myGames.games[0].name);
+    var obj = JSON.parse(str);
+    console.log(obj.games[0].name);
+    myGames[0] = obj.games[0].name;
     console.log(str);
   });
   
@@ -45,7 +46,7 @@ var req = https.request(options, callback);
 
 req.end();
 var context = {};
-context.sentData = myGames.games[0].name;
+context.sentData = myGames[0];
 
 res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });

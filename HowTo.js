@@ -32,10 +32,12 @@ callback = function(res) {
   res.on('data', function (chunk) {
     str += chunk;
     //myGames = JSON.parse(str);
-    myGames = JSON.parse(chunk);
   });
 
   res.on('end', function () {
+    var obj = JSON.parse(str);
+    console.log(obj.name);
+    myGames = JSON.parse(str);
     console.log(str);
   });
   
@@ -44,11 +46,7 @@ var req = https.request(options, callback);
 
 req.end();
 
-console.log(myGames.games.name);
-
-var context = myGames.games.name;
-
-res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
+res.render('howtomain.handlebars')  //We can omit the .handlebars extension as we do below
 });
 
 app.listen(app.get('port'), function(){

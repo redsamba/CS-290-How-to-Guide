@@ -31,24 +31,19 @@ callback = function(res) {
   var str = ''
   res.on('data', function (chunk) {
     str += chunk;
+    myGames = JSON.parse(str);
   });
 
   res.on('end', function () {
     console.log(str);
   });
   
-  res.on('data', function (data) {
-    myGames = JSON.parse(data);
-  });
-  
-  res.on('end',function(){
-    console.log(myGames.games[1].name);
-  })
-  
 }
 var req = https.request(options, callback);
 
 req.end();
+
+console.log(myGames.games[1].name);
 
 var context = myGames.games[1].name;
 

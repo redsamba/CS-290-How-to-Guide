@@ -40,17 +40,14 @@ callback = function(res) {
     myGames[0] = obj.games[0].name;
     console.log(str);
     console.log(myGames[0]);
+    
+    res.render('howtomain.handlebars', myGames[0]);
+    
   });
   
 }
 var req = https.request(options, callback);
 
-req.end();
-console.log(myGames[0]);
-var context = {};
-context.sentData = myGames[0];
-
-res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });
 
 app.listen(app.get('port'), function(){

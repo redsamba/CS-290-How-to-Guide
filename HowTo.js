@@ -19,7 +19,7 @@ var https = require('https');
 
 var options = {
   host: 'www.igdb.com',
-  path: '/api/v1/games',
+  path: '/api/v1/companies',
   port: '443',
   headers: {
     'Accept': 'application/json',
@@ -35,16 +35,14 @@ callback = function(response) {
   
   response.on('end', function () {
     myGames = JSON.parse(str);
-    console.log(myGames.games[0].name);
-    console.log(myGames.games[22].name);
     console.log(str);
     
     var qParams = [];
     for(var i = 0; i < 25; i++){
       
-      for (var p in myGames.games[i]){
-        qParams.push({'name':p,'value':(myGames.games[i])[p]});
-        console.log("Name: " + p  + (myGames.games[i])[p]);
+      for (var p in myGames.companies[i]){
+        qParams.push({'name':p,'value':(myGames.companies[i])[p]});
+        console.log("Name: " + p  + (myGames.companies[i])[p]);
       }
       
     }

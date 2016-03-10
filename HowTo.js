@@ -6,6 +6,8 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
+var myGames;
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -33,7 +35,7 @@ callback = function(res) {
   });
 
   res.on('end', function () {
-    var obj = JSON.parse(str);
+    res.send(myGames);
     console.log(obj.games[0].name);
     console.log(str);
     
@@ -43,7 +45,7 @@ callback = function(res) {
 var req = https.request(options, callback);
 
  var context = {};
- context.sentData = obj.games[0].name;
+ context.sentData = myGames.games[0].name;
       
  res.render('howtomain.handlebars', context);
 

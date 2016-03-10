@@ -18,7 +18,6 @@ var myGames;
 app.get('/',function(req,res){
   
 var https = require('https');
-console.log('Hi Tim!');
 var options = {
   host: 'www.igdb.com',
   path: '/api/v1/games',
@@ -28,10 +27,8 @@ var options = {
     'Authorization': 'Token token="QBwnDqlYnlq8vfe0iozGul3gnc1c3b-VSIuw2qdY9KI"'
   }
 };
-console.log('Hi Tim!');
 callback = function(res) {
   var str = ''
-  console.log('Greetings Tim!');
   res.on('data', function (chunk) {
     str += chunk;
   });
@@ -40,18 +37,14 @@ callback = function(res) {
      myGames = JSON.parse(data);
   });
 
-  console.log('Hello there Tim!');
   res.on('end', function () {
     console.log(str);
   });
   
-  console.log("Hi again Tim!");
 }
-console.log('Almost there Tim!');
 var req = https.request(options, callback);
 
 req.end();
-console.log('Done Tim!');
 
 var context = games[1].name;
 

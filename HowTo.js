@@ -71,6 +71,8 @@ callback = function(response) {
       }
       
     }
+    
+    cycle(myGames);
       
     var context = {};
     context.dataList = qParams;

@@ -65,6 +65,7 @@ callback = function(response) {
         else{
           
           qParams.push({'name':p,'value':myGames.game[p]});
+          return;
           
         }
         

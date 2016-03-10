@@ -37,7 +37,7 @@ callback = function(res) {
   res.on('end', function () {
     var obj = JSON.parse(str);
     console.log(obj.games[0].name);
-    myGames = obj;
+    myGames = obj.games[0].name;
     console.log(str);
   });
   
@@ -46,7 +46,7 @@ var req = https.request(options, callback);
 
 req.end();
 
-var context = myGames.games[0].name;
+var context = myGames;
 
 res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });

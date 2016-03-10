@@ -37,7 +37,7 @@ callback = function(response) {
   response.on('end', function () {
     myGames = JSON.parse(str);
     console.log(myGames.games[0].name);
-    console.log(myGames.games[25].name);
+    console.log(myGames.games[22].name);
     console.log(str);
     var context = {};
     context.sentData = myGames.games[0].name;

@@ -53,26 +53,24 @@ callback = function(response) {
       
     }*/
     
-    var cycle = function(my){
+    function cycle (myGames){
       
-      for (var p in my.game){
+      for (var p in myGames.game){
       
-        if (isArray(my.game[p])){
+        if (isArray(myGames.game[p])){
           
-          cycle(my.game[p]);  
+          cycle(myGames.game[p]);  
           
         }
         else{
           
-          qParams.push({'name':p,'value':my.game[p]});
+          qParams.push({'name':p,'value':myGames.game[p]});
           
         }
         
       }
       
     }
-    
-    cycle(myGames);
       
     var context = {};
     context.dataList = qParams;

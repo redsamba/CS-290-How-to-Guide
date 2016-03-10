@@ -53,7 +53,7 @@ var req = https.request(options, callback);
 req.end();
 console.log('Done Tim!');
 
-var context = myGames.games[1].name;
+var context = games[1].name;
 
 res.render('howtomain.handlebars', context)  //We can omit the .handlebars extension as we do below
 });

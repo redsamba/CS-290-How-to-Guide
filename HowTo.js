@@ -25,7 +25,7 @@ var https = require('https');
 
 var options = {
   host: 'www.igdb.com',
-  path: '/api/v1/games/2761',
+  path: '/api/v1/games/1988',
   port: '443',
   headers: {
     'Accept': 'application/json',
